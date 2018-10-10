@@ -1,5 +1,3 @@
-DOCUMENTATION MOVED TO: https://github.com/TotalWebConnections/Simple-Lead-Tracker-API-Docs
-
 *******STILL IN PROGRESS*********
 
 
