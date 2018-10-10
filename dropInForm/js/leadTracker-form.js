@@ -20,17 +20,17 @@
 
             //TODO front end form validation
 
-            //TODO make this work for an arbitrary amount of fields and field names
-            //also clean it up to prevent redundency
-            var name = this.$form.find('.name').val();
-            var category = this.$form.find('.category').val();
-            var website = this.$form.find('.website').val();
-            var company = this.$form.find('.company').val();
-            var phone = this.$form.find('.phone').val();
-            var email = this.$form.find('.email').val();
-            var apiToken = this.$form.find('.apiToken').val();
 
-            var postObject = {'name': name, 'category': category, 'website': website, "company": company, "phone": phone, "email": email, "apiToken": apiToken}
+            var postObject = {};
+            $(this.$form).find('input').each(function(){
+              if($(this).attr('type') != 'hidden'){
+                var inputName = $(this).attr('name');
+                var value = $(this).val();
+                postObject[inputName] = value;
+              }
+            });
+
+            postObject.apiToken = this.$form.find('.apiToken').val();
 
 
             //handle the actual AJAX request
@@ -46,6 +46,8 @@
 
             request.fail(function(jqXHR, textStatus) {
               alert( "Request failed: " + textStatus );
+              console.log(textStatus)
+              console.log(jqXHR)
             });
         }
     }

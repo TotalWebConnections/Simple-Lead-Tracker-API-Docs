@@ -16,7 +16,7 @@ $website = "www.simpleleadtracker.com";
 $secretKey = 'API Key Goes Here';
 
 
-//create the data array 
+//create the data array
 $data = array('apiToken'=>'keyGoesHere',
               'contact'=>$contact,
               'company'=>$company,
